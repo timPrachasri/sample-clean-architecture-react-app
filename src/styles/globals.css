@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import 'react-toastify/dist/ReactToastify.css';
+@import 'swiper/swiper.min.css';
+@import 'swiper/modules/pagination/pagination.min.css';
+@import 'rc-slider/assets/index.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  html {
+    @apply font-inter !important;
+  }
+}

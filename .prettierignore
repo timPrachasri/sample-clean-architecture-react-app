@@ -1,0 +1,5 @@
+# Ignore all CSS files:
+*.css
+/src/assets/*
+build
+public

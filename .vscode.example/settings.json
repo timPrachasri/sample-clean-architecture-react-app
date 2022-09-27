@@ -1,0 +1,15 @@
+{
+    "editor.formatOnSave": true,
+    "[typescript]": {
+        "editor.formatOnPaste": false,
+        "editor.formatOnSave": false
+    },
+    "prettier.semi": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "cSpell.words": [
+        "Starknet"
+    ]
+}

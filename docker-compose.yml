@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+    work-trial-interface:
+        container_name: work-trial-interface
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        ports:
+            - 3002:3002
