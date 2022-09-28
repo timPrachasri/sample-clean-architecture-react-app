@@ -1,4 +1,4 @@
-This is an example showing how to use StarkNet React with Next.js
+This is an example showing how to use React with Next.js
 
 ## How To Update Environment Variable
 
