@@ -1,19 +1,35 @@
 import { isNone, none, Option, some } from 'fp-ts/lib/Option'
-import React, { createContext, ReactNode, useCallback, useContext, useState } from 'react'
+import { useAtomValue } from 'jotai'
+import React, { createContext, ReactNode, useContext } from 'react'
+import { itemEntitiesAtom } from '~/atom'
+import { ItemEntity } from '~/entities'
+import { useGetAllItems, useUpdateItem } from '~/hooks/items'
 import { IAppProviderContext } from './interfaces'
 
 const AppProviderContext = createContext<Option<IAppProviderContext>>(none)
 
 export const AppProvider = ({ children }: { children: ReactNode }): JSX.Element => {
-  /**
-   * we can't define @param {Dialog} - as a child of @param {Disclosure}
-   * then we need some provider to pass some states to @param {Dialog}
-   */
-  const [isWalletModalOpen, setIsWalletModelOpen] = useState<boolean>(false)
-  const handleIsWalletModalOpen = useCallback((v: boolean) => setIsWalletModelOpen(v), [setIsWalletModelOpen])
+  const itemsHookState = useGetAllItems()
+  const updateItem = useUpdateItem()
+  const atomItems = useAtomValue(itemEntitiesAtom)
+  const [selectedItem, setSelectedItem] = React.useState<Option<ItemEntity>>(none)
+  const [isUpdateItemModalOpen, setIsUpdateItemModalOpen] = React.useState(false)
+  const [isUpdateQuantityModalOpen, setIsUpdateQuantityModalOpen] = React.useState(false)
 
   return (
-    <AppProviderContext.Provider value={some({ isWalletModalOpen, handleIsWalletModalOpen })}>
+    <AppProviderContext.Provider
+      value={some({
+        itemsHookState,
+        atomItems,
+        setSelectedItem,
+        selectedItem,
+        isUpdateItemModalOpen,
+        setIsUpdateItemModalOpen,
+        isUpdateQuantityModalOpen,
+        setIsUpdateQuantityModalOpen,
+        updateItem,
+      })}
+    >
       {children}
     </AppProviderContext.Provider>
   )
