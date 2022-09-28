@@ -8,11 +8,7 @@ const nextConfig = {
     NAME: process.env.NAME,
     DESCRIPTION: process.env.DESCRIPTION,
     CUSTOM_ENV: process.env.CUSTOM_ENV,
-    ETH_RPC: process.env.ETH_RPC,
-    ETH_CHAIN_ID: process.env.ETH_CHAIN_ID,
-    FLAG_SHOW_LAUNCH_PAGE: process.env.FLAG_SHOW_LAUNCH_PAGE,
-    FLAG_SHOW_ETH_WALLET: process.env.FLAG_SHOW_ETH_WALLET,
-    FLAG_SHOW_DEPRECATED_TOKEN: process.env.FLAG_SHOW_DEPRECATED_TOKEN,
+    WORK_TRIAL_API_URL: process.env.WORK_TRIAL_API_URL,
   },
   exclude: path.resolve(__dirname, 'public/svgs'),
   webpack(config, options) {
@@ -23,17 +19,6 @@ const nextConfig = {
     })
 
     return config
-  },
-  async redirects() {
-    return [
-      process.env.FLAG_SHOW_LAUNCH_PAGE === 'true'
-        ? null
-        : {
-            source: '/launch',
-            destination: '/',
-            permanent: true,
-          },
-    ].filter((item) => item !== null)
   },
 }
 

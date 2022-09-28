@@ -8,6 +8,7 @@ declare namespace NodeJS {
 
   interface ProcessEnv {
     readonly CUSTOM_ENV: 'develop' | 'prod'
+    readonly WORK_TRIAL_API_URL: string
   }
 }
 
