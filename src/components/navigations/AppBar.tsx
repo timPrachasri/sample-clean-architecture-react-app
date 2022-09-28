@@ -4,13 +4,6 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 import Logo from '../../../public/images/logo.svg'
-import { CloseIcon, MenuIcon } from '../icons'
-
-interface IMenu {
-  id: string
-  label: string
-  to: string
-}
 
 const LogoWrapper = styled.div`
   width: 68px;
