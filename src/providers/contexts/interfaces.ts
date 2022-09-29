@@ -1,7 +1,7 @@
 import { ItemEntity } from '~/entities'
 import { IHookState } from '~/hooks'
 import { Option } from 'fp-ts/lib/Option'
-import { IItemUpdateParams } from '~/entities/item/interfaces'
+import { IItemCreateParams, IItemUpdateParams } from '~/entities/item/interfaces'
 
 export interface IAppProviderContext {
   itemsHookState: IHookState<Array<ItemEntity>>
@@ -12,5 +12,8 @@ export interface IAppProviderContext {
   setIsUpdateItemModalOpen: React.Dispatch<React.SetStateAction<boolean>>
   isUpdateQuantityModalOpen: boolean
   setIsUpdateQuantityModalOpen: React.Dispatch<React.SetStateAction<boolean>>
+  isCreateItemModalOpen: boolean
+  setIsCreateItemModalOpen: React.Dispatch<React.SetStateAction<boolean>>
   updateItem: (selectedItem: ItemEntity, updatedParams: IItemUpdateParams) => Promise<void>
+  createItem: (params: IItemCreateParams) => Promise<void>
 }

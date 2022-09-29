@@ -4,6 +4,7 @@ import React, { createContext, ReactNode, useContext } from 'react'
 import { itemEntitiesAtom } from '~/atom'
 import { ItemEntity } from '~/entities'
 import { useGetAllItems, useUpdateItem } from '~/hooks/items'
+import { useCreateItem } from '~/hooks/items/useCreateItem'
 import { IAppProviderContext } from './interfaces'
 
 const AppProviderContext = createContext<Option<IAppProviderContext>>(none)
@@ -11,10 +12,12 @@ const AppProviderContext = createContext<Option<IAppProviderContext>>(none)
 export const AppProvider = ({ children }: { children: ReactNode }): JSX.Element => {
   const itemsHookState = useGetAllItems()
   const updateItem = useUpdateItem()
+  const createItem = useCreateItem()
   const atomItems = useAtomValue(itemEntitiesAtom)
   const [selectedItem, setSelectedItem] = React.useState<Option<ItemEntity>>(none)
   const [isUpdateItemModalOpen, setIsUpdateItemModalOpen] = React.useState(false)
   const [isUpdateQuantityModalOpen, setIsUpdateQuantityModalOpen] = React.useState(false)
+  const [isCreateItemModalOpen, setIsCreateItemModalOpen] = React.useState(false)
 
   return (
     <AppProviderContext.Provider
@@ -27,7 +30,10 @@ export const AppProvider = ({ children }: { children: ReactNode }): JSX.Element 
         setIsUpdateItemModalOpen,
         isUpdateQuantityModalOpen,
         setIsUpdateQuantityModalOpen,
+        isCreateItemModalOpen,
+        setIsCreateItemModalOpen,
         updateItem,
+        createItem,
       })}
     >
       {children}

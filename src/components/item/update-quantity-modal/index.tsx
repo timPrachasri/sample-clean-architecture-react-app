@@ -102,7 +102,7 @@ export const UpdateQuantityModal = (): JSX.Element => {
                 }}
                 value={itemQuantity.toString()}
                 className="text-sm"
-                baseBlock="c-updateItemInputBody"
+                baseBlock="c-updateQuantityInputBody"
                 type="number"
                 min={0}
               ></GhostTextInput>

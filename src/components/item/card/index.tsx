@@ -4,6 +4,17 @@ import { ImageWithFallback } from '~/components/image/ImageWithFallback'
 import { ItemEntity } from '~/entities'
 import { ItemOptionsDropdownComponent } from '../dropdown'
 import PlusMinus from '../../../../public/svgs/plus-minus.svg'
+import { PlusIcon } from '~/components/icons'
+
+export const AddItemCard = ({ onClick }: { onClick: () => void }): JSX.Element => {
+  return (
+    <div onClick={onClick} className="card card-compact h-72 w-60 bg-base-100 shadow-2xl shadow-black-500/40">
+      <div className="flex flex-col justify-center h-full items-center w-full bg-primary rounded-3xl border-2 border-accent border-dashed cursor-pointer hover:bg-primary-focus">
+        <PlusIcon className="w-20 h-20"></PlusIcon>
+      </div>
+    </div>
+  )
+}
 
 export const ItemCard = ({ item, onClick }: { item: ItemEntity; onClick: () => void }): JSX.Element => {
   return (
