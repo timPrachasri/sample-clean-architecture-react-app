@@ -15,6 +15,19 @@ export interface IItemProps {
   createdAt: Date | null
 }
 
+export interface IItemCreateParams {
+  name: string
+  unit: {
+    name: string
+    kernelCount: number
+  }
+  quantity: number
+
+  // Optional Params
+  location?: string
+  picture?: string
+  note?: string
+}
 export interface IItemUpdateParams {
   // Optional Params
   name?: string
