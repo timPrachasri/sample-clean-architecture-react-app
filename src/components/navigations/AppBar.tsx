@@ -18,8 +18,7 @@ const LogoWrapper = styled.div`
 `
 
 export const AppBar = (): JSX.Element => {
-  const navClassList =
-    'w-full tablet:max-w-screen-xl max-w-full px-4 mx-auto bg-transparent gradient-border-bottom z-10'
+  const navClassList = 'w-full max-w-full px-4 mx-auto bg-transparent gradient-border-bottom z-10'
 
   return (
     <header className="c-appbar top-0 flex z-80 sticky">

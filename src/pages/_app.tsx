@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import NextHead from 'next/head'
 import React from 'react'
-import { AppBar } from '~/components/navigations'
+import { AppBar, Footer } from '~/components/navigations'
 import { AppProvider } from '~/providers'
 import '../styles/globals.css'
 
@@ -21,6 +21,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
         <AppProvider>
           <AppBar />
           <Component {...pageProps} />
+          <Footer />
         </AppProvider>
       </div>
     </>
