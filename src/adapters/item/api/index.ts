@@ -2,7 +2,7 @@ import { map } from 'fp-ts/lib/Array'
 import { DateTime } from 'luxon'
 import { httpService } from '~/connectors'
 import { ItemEntity } from '~/entities'
-import { IItemUpdateParams } from '~/entities/item/interfaces'
+import { IItemCreateParams, IItemUpdateParams } from '~/entities/item/interfaces'
 import { IItemAdapter } from '../interfaces'
 import { IGetAllItemsResponse, IGetItemResponse } from './interfaces'
 
@@ -38,6 +38,17 @@ export class APIItemAdapter implements IItemAdapter {
       ...(params.location ? { location: params.location } : {}),
       ...(params.picture ? { picture: params.picture } : {}),
       ...(params.note ? { note: params.note } : {}),
+    })
+  }
+
+  async createItem(params: IItemCreateParams): Promise<void> {
+    await httpService.post(`/api/v1/items`, {
+      ...(params.name ? { name: params.name } : {}),
+      ...(params.quantity ? { quantity: params.quantity } : {}),
+      ...(params.location ? { location: params.location } : {}),
+      ...(params.picture ? { picture: params.picture } : {}),
+      ...(params.note ? { note: params.note } : {}),
+      ...(params.unit ? { unit: { name: params.unit.name, kernelCount: params.unit.kernelCount } } : {}),
     })
   }
 }
