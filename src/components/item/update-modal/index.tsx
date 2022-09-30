@@ -169,7 +169,11 @@ const UpdateItemModalBody = ({
           <div className="text-xs font-extralight py-2 text-end">Unit</div>
           <div className="truncate text-end text-sm">
             {itemUnit.count} {itemUnit.unit}{' '}
-            <span className="text-xs font-light">(~{itemUnit.defaultCount} Kernel)</span>
+            {itemUnit.unit.trim().toLowerCase() !== DEFAULT_UNIT_NAME.trim().toLowerCase() && (
+              <span className="text-xs font-light">
+                (~{itemUnit.defaultCount} {DEFAULT_UNIT_NAME})
+              </span>
+            )}
           </div>
         </div>
       </div>

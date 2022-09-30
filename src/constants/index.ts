@@ -1,2 +1,2 @@
 export const DEFAULT_UNIT_NAME = 'Ear'
-export const DEFAULT_UNIT_KERNEL_COUNT = 800
+export const DEFAULT_UNIT_COUNT = 1

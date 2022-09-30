@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useDeepCallback, useDeepEffect } from '~/hooks'
 import { useAppContext } from '~/providers'
 import { ProceedModal, Modal, ModalContent, ModalHeader, ModalFooter } from '~/components/modal'
-import { DEFAULT_UNIT_KERNEL_COUNT, DEFAULT_UNIT_NAME } from '~/constants'
+import { DEFAULT_UNIT_COUNT, DEFAULT_UNIT_NAME } from '~/constants'
 import { Formik, Form, useField, FieldAttributes } from 'formik'
 import { createItemFormValuesSchema, ICreateItemFormValues } from './interfaces'
 
@@ -124,7 +124,7 @@ const CreateItemModalBody = (): JSX.Element => {
               <TextInput name="unitName" type="text"></TextInput>
             </div>
             <div>
-              <div className="text-[10px] font-extralight">Kernels Per Unit</div>
+              <div className="text-[10px] font-extralight">{DEFAULT_UNIT_NAME} Per Unit</div>
               <TextInput name="unitKernelCount" type="number"></TextInput>
             </div>
           </div>
@@ -150,7 +150,7 @@ export const CreateItemModal = (): JSX.Element => {
   const initialValues: ICreateItemFormValues = {
     name: '',
     unitName: DEFAULT_UNIT_NAME,
-    unitKernelCount: DEFAULT_UNIT_KERNEL_COUNT,
+    unitKernelCount: DEFAULT_UNIT_COUNT,
     quantity: 1,
     location: undefined,
     note: undefined,

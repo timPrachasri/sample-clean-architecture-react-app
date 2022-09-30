@@ -1,7 +1,7 @@
 import { pipe } from 'fp-ts/lib/function'
 import { fromNullable, getOrElse, match, none, Option, some } from 'fp-ts/lib/Option'
 import { DateTime } from 'luxon'
-import { DEFAULT_UNIT_KERNEL_COUNT } from '~/constants'
+import { DEFAULT_UNIT_COUNT } from '~/constants'
 import { Entity } from '~/utils'
 import { IItemProps, IItemUpdateParams } from './interfaces'
 
