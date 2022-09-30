@@ -6,6 +6,7 @@ import { ItemEntity } from '~/entities'
 import { useGetAllItems, useUpdateItem } from '~/hooks/items'
 import { useCreateItem } from '~/hooks/items/useCreateItem'
 import { useDeleteItem } from '~/hooks/items/useDeleteItem'
+import { useDownloadItems } from '~/hooks/items/useDownload'
 import { IAppProviderContext } from './interfaces'
 
 const AppProviderContext = createContext<Option<IAppProviderContext>>(none)
@@ -16,6 +17,7 @@ export const AppProvider = ({ children }: { children: ReactNode }): JSX.Element 
   const createItem = useCreateItem()
   const atomItems = useAtomValue(itemEntitiesAtom)
   const deleteItem = useDeleteItem()
+  const downloadItems = useDownloadItems()
   const [selectedItem, setSelectedItem] = React.useState<Option<ItemEntity>>(none)
   const [isUpdateItemModalOpen, setIsUpdateItemModalOpen] = React.useState(false)
   const [isUpdateQuantityModalOpen, setIsUpdateQuantityModalOpen] = React.useState(false)
@@ -40,6 +42,7 @@ export const AppProvider = ({ children }: { children: ReactNode }): JSX.Element 
         updateItem,
         createItem,
         deleteItem,
+        downloadItems,
       })}
     >
       {children}

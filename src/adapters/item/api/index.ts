@@ -57,7 +57,19 @@ export class APIItemAdapter implements IItemAdapter {
   }
 
   async download(): Promise<void> {
-    await httpService.get(`/api/v1/items.download`)
+    const response = await httpService.get(`/api/v1/items.download`, {
+      responseType: 'blob',
+    })
+    const href = URL.createObjectURL(response.data)
+
+    const link = document.createElement('a')
+    link.href = href
+    link.setAttribute('download', `items_db_${DateTime.now().toUnixInteger()}.csv`) //or any other extension
+    document.body.appendChild(link)
+    link.click()
+
+    document.body.removeChild(link)
+    URL.revokeObjectURL(href)
   }
 }
 

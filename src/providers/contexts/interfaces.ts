@@ -19,4 +19,5 @@ export interface IAppProviderContext {
   updateItem: (selectedItem: ItemEntity, updatedParams: IItemUpdateParams) => Promise<void>
   createItem: (params: IItemCreateParams) => Promise<void>
   deleteItem: (selectedItem: ItemEntity) => Promise<void>
+  downloadItems: () => Promise<void>
 }

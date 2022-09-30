@@ -6,6 +6,6 @@ export const useDownloadItems = () => {
   const itemAdapter: IItemAdapter = apiItemAdapter
 
   return useCallback(async () => {
-    itemAdapter.download()
+    await itemAdapter.download()
   }, [itemAdapter])
 }
