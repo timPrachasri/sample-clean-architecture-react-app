@@ -17,4 +17,12 @@
   body {
     @apply text-base-100;
   }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    min-height: 100%;
+  }
 }
