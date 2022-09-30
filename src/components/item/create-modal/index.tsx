@@ -171,7 +171,9 @@ export const CreateItemModal = (): JSX.Element => {
         setImageB64(reader.result as string)
       }
       reader.readAsDataURL(image)
+      return
     }
+    setImageB64(null)
   }, [image])
 
   const create = useCallback(
@@ -201,9 +203,7 @@ export const CreateItemModal = (): JSX.Element => {
           setSubmitting(true)
           create({ ...values, picture: imageB64 ?? undefined })
           resetForm()
-          startTransition(() => {
-            setImage(null)
-          })
+          setImage(null)
         }}
       >
         {({ isValid, isSubmitting, dirty, resetForm, submitForm }) => (
