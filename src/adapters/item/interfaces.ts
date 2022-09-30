@@ -5,4 +5,6 @@ export interface IItemAdapter {
   getAllItems: () => Promise<Array<ItemEntity>>
   updateItem: (id: string, params: IItemUpdateParams) => Promise<void>
   createItem: (params: IItemCreateParams) => Promise<void>
+  deleteItem: (id: string) => Promise<void>
+  download: () => Promise<void>
 }

@@ -51,6 +51,14 @@ export class APIItemAdapter implements IItemAdapter {
       ...(params.unit ? { unit: { name: params.unit.name, kernelCount: params.unit.kernelCount } } : {}),
     })
   }
+
+  async deleteItem(id: string): Promise<void> {
+    await httpService.delete(`/api/v1/items/${id}`)
+  }
+
+  async download(): Promise<void> {
+    await httpService.get(`/api/v1/items.download`)
+  }
 }
 
 export const apiItemAdapter = new APIItemAdapter()
