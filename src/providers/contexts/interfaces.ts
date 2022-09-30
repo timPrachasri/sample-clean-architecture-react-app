@@ -14,6 +14,9 @@ export interface IAppProviderContext {
   setIsUpdateQuantityModalOpen: React.Dispatch<React.SetStateAction<boolean>>
   isCreateItemModalOpen: boolean
   setIsCreateItemModalOpen: React.Dispatch<React.SetStateAction<boolean>>
+  isDeleteItemModalOpen: boolean
+  setIsDeleteItemModalOpen: React.Dispatch<React.SetStateAction<boolean>>
   updateItem: (selectedItem: ItemEntity, updatedParams: IItemUpdateParams) => Promise<void>
   createItem: (params: IItemCreateParams) => Promise<void>
+  deleteItem: (selectedItem: ItemEntity) => Promise<void>
 }

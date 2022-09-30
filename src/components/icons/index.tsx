@@ -1,5 +1,5 @@
 import React, { SVGProps } from 'react'
-import { AlertTriangle, Info, Menu, X, ChevronLeft, MoreHorizontal, Plus, Minus, Edit } from 'react-feather'
+import { AlertTriangle, Info, Menu, X, ChevronLeft, MoreHorizontal, Plus, Minus, Trash2 } from 'react-feather'
 import styled from 'styled-components'
 
 export const CloseIcon = styled(X)`
@@ -21,6 +21,8 @@ export const MoreHorizontalIcon = styled(MoreHorizontal)``
 export const PlusIcon = styled(Plus)``
 
 export const MinusIcon = styled(Minus)``
+
+export const TrashIcon = Trash2
 
 export const EditInactiveIcon = (props: SVGProps<any>) => {
   return (

@@ -1,17 +1,24 @@
 import { Menu, Transition } from '@headlessui/react'
 import { some } from 'fp-ts/lib/Option'
 import React, { Fragment } from 'react'
-import { EditActiveIcon, EditInactiveIcon, MoreHorizontalIcon } from '~/components/icons'
+import { TrashIcon, EditActiveIcon, EditInactiveIcon, MoreHorizontalIcon } from '~/components/icons'
 import { ItemEntity } from '~/entities'
 import { useDeepCallback } from '~/hooks'
 import { useAppContext } from '~/providers'
 
 export const ItemOptionsDropdownComponent = ({ item }: { item: ItemEntity }) => {
-  const { setIsUpdateItemModalOpen, setSelectedItem } = useAppContext()
+  const { setIsUpdateItemModalOpen, setSelectedItem, setIsDeleteItemModalOpen } = useAppContext()
+
   const openUpdateItemModal = useDeepCallback((): void => {
     setIsUpdateItemModalOpen(true)
     setSelectedItem(some(item))
   }, [item, setIsUpdateItemModalOpen, setSelectedItem])
+
+  const openDeleteItemModal = useDeepCallback((): void => {
+    setIsDeleteItemModalOpen(true)
+    setSelectedItem(some(item))
+  }, [item, setIsDeleteItemModalOpen, setSelectedItem])
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -40,6 +47,26 @@ export const ItemOptionsDropdownComponent = ({ item }: { item: ItemEntity }) => 
                 >
                   {active ? <EditActiveIcon className="mr-2 h-5 w-5" /> : <EditInactiveIcon className="mr-2 h-5 w-5" />}
                   <span className="font-medium">Details</span>
+                </button>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <button
+                  onClick={openDeleteItemModal}
+                  className={`${active ? 'bg-error' : ''} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                >
+                  {active ? (
+                    <>
+                      <TrashIcon className="mr-2 h-5 w-5 text-error-content" />
+                      <span className="font-medium text-error-content">Delete</span>
+                    </>
+                  ) : (
+                    <>
+                      <TrashIcon className="mr-2 h-5 w-5 text-error" />
+                      <span className="font-medium text-error">Delete</span>
+                    </>
+                  )}
                 </button>
               )}
             </Menu.Item>
