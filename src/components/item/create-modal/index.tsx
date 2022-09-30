@@ -151,7 +151,7 @@ export const CreateItemModal = (): JSX.Element => {
     name: '',
     unitName: DEFAULT_UNIT_NAME,
     unitKernelCount: DEFAULT_UNIT_KERNEL_COUNT,
-    quantity: 0,
+    quantity: 1,
     location: undefined,
     note: undefined,
   }

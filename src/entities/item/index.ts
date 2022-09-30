@@ -69,7 +69,7 @@ export class ItemEntity extends Entity<IItemProps> {
   }
 
   get quantityInDefaultFormat(): number {
-    return parseFloat(((this.props.unit.kernelCount * this.props.quantity) / DEFAULT_UNIT_KERNEL_COUNT).toFixed(2))
+    return parseFloat((this.props.unit.kernelCount * this.props.quantity).toFixed(2))
   }
 
   public cleanUpdatedValue(params: IItemUpdateParams): IItemUpdateParams {

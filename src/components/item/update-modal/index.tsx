@@ -138,7 +138,7 @@ const UpdateItemModalBody = ({
       }),
       (item) => ({
         unit: item.unitName,
-        count: formatInteger(item.unitKernelCount),
+        count: formatInteger(item.quantity),
         defaultCount: formatInteger(item.quantityInDefaultFormat),
       })
     )(selectedItem)
@@ -169,9 +169,7 @@ const UpdateItemModalBody = ({
           <div className="text-xs font-extralight py-2 text-end">Unit</div>
           <div className="truncate text-end text-sm">
             {itemUnit.count} {itemUnit.unit}{' '}
-            <span className="text-xs font-light">
-              (~{itemUnit.defaultCount} {DEFAULT_UNIT_NAME})
-            </span>
+            <span className="text-xs font-light">(~{itemUnit.defaultCount} Kernel)</span>
           </div>
         </div>
       </div>
