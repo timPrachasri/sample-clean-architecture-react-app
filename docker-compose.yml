@@ -1,7 +1,7 @@
 version: '3.3'
 services:
     work-trial-interface:
-        container_name: work-trial-interface
+        container_name: sample-clean-architecture-react-app
         build:
             context: ./
             dockerfile: ./Dockerfile
